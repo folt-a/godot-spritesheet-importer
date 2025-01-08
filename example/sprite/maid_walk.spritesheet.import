@@ -1,0 +1,15 @@
+[remap]
+
+importer="imagename.spritesheet"
+type="Resource"
+uid="uid://blemsheddc05s"
+path="res://.godot/imported/maid_walk.spritesheet-e5836c0e13cd6640ffef4821c18b588e.res"
+
+[deps]
+
+source_file="res://example/sprite/maid_walk.spritesheet"
+dest_files=["res://.godot/imported/maid_walk.spritesheet-e5836c0e13cd6640ffef4821c18b588e.res"]
+
+[params]
+
+grid_size=Vector2i(96, 96)

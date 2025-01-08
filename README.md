@@ -1,0 +1,1 @@
+# Godot SpriteSheet Importer
