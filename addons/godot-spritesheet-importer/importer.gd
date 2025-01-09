@@ -25,10 +25,21 @@ func _get_priority():
 	return 1.0
 
 func _get_preset_name(preset_index: int) -> String:
+	match preset_index:
+		0: return "Default"
+		1: return "16x16"
+		2: return "32x32"
+		3: return "48x48"
+		4: return "64x64"
+		5: return "96x96"
+		6: return "128x128"
+		7: return "144x144"
+		8: return "256x256"
+		9: return "512x512"
 	return ""
 
 func _get_preset_count():
-	return 0
+	return 10
 
 func _get_option_visibility(path: String, option_name: StringName, options: Dictionary) -> bool:
 	return true
@@ -39,6 +50,51 @@ func _get_import_options(path, preset_index):
 			return [{
 					   "name": "grid_size",
 					   "default_value": Vector2i(64, 64)
+					}]
+		1:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(16, 16)
+					}]
+		2:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(32, 32)
+					}]
+		3:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(48, 48)
+					}]
+		4:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(64, 64)
+					}]
+		5:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(96, 96)
+					}]
+		6:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(128, 128)
+					}]
+		7:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(144, 144)
+					}]
+		8:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(256, 256)
+					}]
+		9:
+			return [{
+					   "name": "grid_size",
+					   "default_value": Vector2i(512, 512)
 					}]
 		_:
 			return []
@@ -52,10 +108,8 @@ func _import(
 	) -> Error:
 	var sheet:= SpriteSheet.new()
 	var texture:Texture2D = null
-	print(image_extensions)
 	for ext in image_extensions:
 		var image_path:String = source_file.replace(".spritesheet", ext)
-		print(image_path)
 		if ResourceLoader.exists(image_path):
 			texture = load(image_path)
 	if texture == null:
